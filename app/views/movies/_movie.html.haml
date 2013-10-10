@@ -1,0 +1,8 @@
+.media[movie]
+  = link_to image_tag(movie.poster, class: 'media-object', style: 'height: 100px;'), '#', class: 'pull-left'
+  .media-body
+    %h4.media-heading= link_to "#{movie.title} (#{movie.year})", movie
+    - if current_user
+      - unless current_user.watched?(movie)
+        = link_to 'Watched', watch_movie_path(movie), class: 'btn watch_link', remote: true
+
