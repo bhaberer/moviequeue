@@ -24,6 +24,7 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
+    @list.creator = current_user
 
     respond_to do |format|
       if @list.save

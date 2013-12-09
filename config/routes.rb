@@ -13,5 +13,6 @@ Moviequeue::Application.routes.draw do
     end
   end
 
+  get '/home', to: 'static#home', as: 'home'
   root to: 'static#index'
 end
